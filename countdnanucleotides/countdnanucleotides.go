@@ -15,12 +15,10 @@ type DNArecord struct {
 	T int
 }
 
-var dna = DNArecord{}
-
 /*
 Process generate the count string of A, C, G and T
 */
-func Process(s string) string {
+func (dna DNArecord) Process(s string) string {
 
 	chunkSize := (len(s) + 10 - 1) / 10
 
@@ -48,8 +46,8 @@ func Process(s string) string {
 /*
 Reset the dna variable
 */
-func Reset() {
-	dna = DNArecord{}
+func (dna *DNArecord) Reset() {
+	dna.A, dna.C, dna.G, dna.T = 0, 0, 0, 0
 }
 
 func (dna DNArecord) String() string {

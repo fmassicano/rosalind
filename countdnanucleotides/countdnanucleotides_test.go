@@ -3,7 +3,7 @@ package countdnanucleotides
 import "testing"
 
 func TestCountDNAnucleotides(t *testing.T) {
-
+	var dna = DNArecord{}
 	var tests = []struct {
 		s, want string
 	}{
@@ -13,11 +13,11 @@ func TestCountDNAnucleotides(t *testing.T) {
 	}
 
 	for _, c := range tests {
-		got := Process(c.s)
+		got := dna.Process(c.s)
 		if got != c.want {
 			t.Errorf("CountDNAnucleotides(%q) == %q, want %q", c.s, got, c.want)
 		}
-		Reset() // If don't the Process continue accumulate.
+		dna.Reset() // If don't the Process continue accumulate.
 	}
 
 }

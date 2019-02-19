@@ -1,20 +1,15 @@
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
+	"os"
 
 	"github.com/fmassicano/rosalind/countdnanucleotides"
+
+	"github.com/fmassicano/rosalind/runner"
+	// "github.com/fmassicano/rosalind/transcribingdnaintorna"
 )
 
 func main() {
-
-	dat, err := ioutil.ReadFile("/Users/felipe/Downloads/rosalind_dna_1_dataset.txt")
-
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println(countdnanucleotides.Process(string(dat)))
-
+	// runner.Run(transcribingdnaintorna.RNA{}, os.Args[1])
+	runner.Run(countdnanucleotides.DNArecord{}, os.Args[1])
 }
