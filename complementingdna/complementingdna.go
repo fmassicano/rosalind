@@ -34,6 +34,7 @@ func (d *DNAcompl) reverseConcurrency(n int) {
 		}
 		wg.Add(1)
 		go func(start, end int) {
+			// fmt.Print(time.Now().Format("04:05.000000") + " -- ")
 			defer wg.Done()
 			d.reverse(start, end)
 		}(i, end)
@@ -44,6 +45,7 @@ func (d *DNAcompl) reverseConcurrency(n int) {
 
 // reverse is a function that reverse a strand of dna
 func (d *DNAcompl) reverse(start, end int) {
+	// fmt.Print(time.Now().Format("04:05.000000") + " ")
 	// fmt.Printf("reverse: start = %v, end = %v\n", start, end)
 	for i := start; i < end; i++ {
 		d.compldna[i] = d.dna[len(d.dna)-i-1]
@@ -62,8 +64,9 @@ func (d *DNAcompl) complementConcurrency(n int) {
 		}
 		wg.Add(1)
 		go func(start, end int) {
+			// fmt.Print(time.Now().Format("04:05.000000") + " -- ")
 			d.complement(start, end)
-			wg.Done()
+			defer wg.Done()
 		}(i, end)
 	}
 	wg.Wait()
@@ -71,6 +74,7 @@ func (d *DNAcompl) complementConcurrency(n int) {
 
 // complement is a function that complement a strand of dna
 func (d *DNAcompl) complement(start, end int) {
+	// fmt.Print(time.Now().Format("04:05.000000") + " -- ")
 	// fmt.Printf("complement: start = %v, end = %v\n", start, end)
 	for i := start; i < end; i++ {
 		switch d.compldna[i] {

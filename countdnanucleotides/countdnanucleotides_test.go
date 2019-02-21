@@ -17,7 +17,7 @@ func TestCountDNAnucleotides(t *testing.T) {
 		if got != c.want {
 			t.Errorf("CountDNAnucleotides(%q) == %q, want %q", c.s, got, c.want)
 		}
-		dna.Reset() // If don't the Process continue accumulate.
+		// dna.Reset() // If don't the Process continue accumulate.
 	}
 
 }
