@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/fmassicano/rosalind/countingpointmutations"
+	"github.com/fmassicano/rosalind/mendelfirstlaw"
 	"github.com/fmassicano/rosalind/runner"
 )
 
@@ -13,5 +13,6 @@ func main() {
 	// runner.Run(complementingdna.DNAcompl{}, os.Args[1])
 	// runner.RunString(rabbitsrecurrencerelations.RabbitRecurrence{}, os.Args[1])
 	// runner.RunString(gccontent.GC{}, os.Args[1])
-	runner.Run(countingpointmutations.CPM{}, os.Args[1])
+	// runner.Run(countingpointmutations.CPM{}, os.Args[1])
+	runner.RunString(mendelfirstlaw.MendelFirstLaw{}, os.Args[1])
 }
