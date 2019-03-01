@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
+	"github.com/fmassicano/rosalind/findingamotifindna"
 	"github.com/fmassicano/rosalind/runner"
-	"github.com/fmassicano/rosalind/translatingrnaintoprotein"
 )
 
 func main() {
@@ -15,5 +15,6 @@ func main() {
 	// runner.RunString(gccontent.GC{}, os.Args[1])
 	// runner.Run(countingpointmutations.CPM{}, os.Args[1])
 	// runner.RunString(mendelfirstlaw.MendelFirstLaw{}, os.Args[1])
-	runner.Run(translatingrnaintoprotein.RNAintoProtein{}, os.Args[1])
+	// runner.Run(translatingrnaintoprotein.RNAintoProtein{}, os.Args[1])
+	runner.Run(findingamotifindna.Motif{}, os.Args[1])
 }
