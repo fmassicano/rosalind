@@ -13,6 +13,7 @@ func TestGetMotifPositions(t *testing.T) {
 		s, want string
 	}{
 		{"GATATATGCATATACTT\nATAT", "2 4 10"},
+		{"ATAT\nGATATATGCATATACTT", "The length of 's' needs to be bigger or equal than t."},
 	}
 
 	for _, c := range tests {
