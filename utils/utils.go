@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"io"
 	"os"
 )
@@ -15,4 +16,9 @@ func Analyze(file string, f func(handle io.Reader) error) error {
 	}
 	defer handle.Close()
 	return f(handle)
+}
+
+func ConvertIntSlicesToString(v []int) string {
+	s := fmt.Sprintf("%v", v)
+	return s[1 : len(s)-1]
 }
