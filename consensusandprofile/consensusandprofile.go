@@ -70,15 +70,16 @@ func (prof *Profile) buildProfile(handle io.Reader) error {
 	// fmt.Println("buildProfile")
 	scanner := bufio.NewScanner(handle)
 	var str strings.Builder
-	i := 0
+	firstMark := false
 	for scanner.Scan() {
 		matched, _ := regexp.MatchString(`>`, scanner.Text())
 
 		if matched {
-			if i > 0 {
+			if firstMark {
 				prof.applyCount(&str)
+			} else {
+				firstMark = true
 			}
-			i++
 			continue
 		}
 
