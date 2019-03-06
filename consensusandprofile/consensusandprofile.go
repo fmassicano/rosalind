@@ -6,6 +6,7 @@ import (
 	"io"
 	"regexp"
 	"strings"
+	"sync"
 
 	"github.com/fmassicano/rosalind/utils"
 )
@@ -42,7 +43,7 @@ func (prof Profile) Process(f string) string {
 }
 
 func (prof *Profile) config(handle io.Reader) error {
-	// fmt.Println("config")
+	fmt.Println("config")
 	scanner := bufio.NewScanner(handle)
 	var str strings.Builder
 	i := 0
@@ -68,6 +69,8 @@ func (prof *Profile) config(handle io.Reader) error {
 
 func (prof *Profile) buildProfile(handle io.Reader) error {
 	// fmt.Println("buildProfile")
+	var wg sync.WaitGroup
+	var m sync.Mutex
 	scanner := bufio.NewScanner(handle)
 	var str strings.Builder
 	firstMark := false
@@ -76,7 +79,7 @@ func (prof *Profile) buildProfile(handle io.Reader) error {
 
 		if matched {
 			if firstMark {
-				prof.applyCount(&str)
+				prof.applyCount(&str, &wg, &m)
 			} else {
 				firstMark = true
 			}
@@ -86,17 +89,25 @@ func (prof *Profile) buildProfile(handle io.Reader) error {
 		str.WriteString(scanner.Text())
 
 	}
-	prof.applyCount(&str)
-	// fmt.Println(prof.p)
+	prof.applyCount(&str, &wg, &m)
+
 	return nil
 }
-func (prof *Profile) applyCount(str *strings.Builder) {
-	prof.getCount(str.String())
+
+func (prof *Profile) applyCount(str *strings.Builder, wg *sync.WaitGroup, m *sync.Mutex) {
+	wg.Add(1)
+	go func() {
+		prof.getCount(str.String(), m)
+		defer wg.Done()
+	}()
+	wg.Wait()
 	str.Reset()
 }
 
-func (prof *Profile) getCount(s string) {
+func (prof *Profile) getCount(s string, m *sync.Mutex) {
 	// fmt.Println("getCount")
+	m.Lock()
+	defer m.Unlock()
 	for i, v := range s {
 		switch v {
 		case 'A':
