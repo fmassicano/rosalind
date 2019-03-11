@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/fmassicano/rosalind/mortalfibonaccirabbits"
+	"github.com/fmassicano/rosalind/overlapgraphs"
 	"github.com/fmassicano/rosalind/runner"
 )
 
@@ -18,5 +18,6 @@ func main() {
 	// runner.Run(translatingrnaintoprotein.RNAintoProtein{}, os.Args[1])
 	// runner.Run(findingamotifindna.Motif{}, os.Args[1])
 	// runner.RunString(consensusandprofile.Profile{}, os.Args[1])
-	runner.RunString(mortalfibonaccirabbits.MortalFibonacci{}, os.Args[1])
+	// runner.RunString(mortalfibonaccirabbits.MortalFibonacci{}, os.Args[1])
+	runner.RunString(overlapgraphs.OverlapGraph{}, os.Args[1])
 }
