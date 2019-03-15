@@ -9,6 +9,7 @@ import (
 	"github.com/fmassicano/rosalind/utils"
 )
 
+// OverlapGraph is a struct to keep nodes and the links
 type OverlapGraph struct {
 	links []string
 	nodes map[string][2]string // 0 contain prefix 1 contain sufix
@@ -30,6 +31,7 @@ func (og *OverlapGraph) init() {
 	og.nodes = make(map[string][2]string)
 }
 
+// Process is a function to run the process of this task
 func (og OverlapGraph) Process(f string) string {
 	// fmt.Println("Process")
 	og.init()
