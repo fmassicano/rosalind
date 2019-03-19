@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/fmassicano/rosalind/overlapgraphs"
+	"github.com/fmassicano/rosalind/calculatingexpectedoffspring"
 	"github.com/fmassicano/rosalind/runner"
 )
 
@@ -19,5 +19,6 @@ func main() {
 	// runner.Run(findingamotifindna.Motif{}, os.Args[1])
 	// runner.RunString(consensusandprofile.Profile{}, os.Args[1])
 	// runner.RunString(mortalfibonaccirabbits.MortalFibonacci{}, os.Args[1])
-	runner.RunString(overlapgraphs.OverlapGraph{}, os.Args[1])
+	// runner.RunString(overlapgraphs.OverlapGraph{}, os.Args[1])
+	runner.RunString(calculatingexpectedoffspring.ExpOffSpring{}, os.Args[1])
 }
