@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	lcsm "github.com/fmassicano/rosalind-branchs/LCSM"
-	"github.com/fmassicano/rosalind/runner"
+	"github.com/fmassicano/rosalind-branchs/LIA"
+	"github.com/fmassicano/rosalind-branchs/runner"
 )
 
 func main() {
@@ -21,5 +21,6 @@ func main() {
 	// runner.RunString(mortalfibonaccirabbits.MortalFibonacci{}, os.Args[1])
 	// runner.RunString(overlapgraphs.OverlapGraph{}, os.Args[1])
 	// runner.RunString(calculatingexpectedoffspring.ExpOffSpring{}, os.Args[1])
-	runner.RunString(lcsm.LCSM{}, os.Args[1])
+	runner.RunString(LIA.LIA{}, os.Args[1])
+
 }
