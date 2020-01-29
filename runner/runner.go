@@ -26,3 +26,9 @@ func Run(f runner, p string) {
 func RunString(f runner, s string) {
 	fmt.Println(f.Process(s))
 }
+
+// RunString is a function that receive a function f which implement
+// runner and process the s string.
+func RunStringOnlyProcess(f runner, s string) {
+	f.Process(s)
+}

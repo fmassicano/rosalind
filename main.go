@@ -3,8 +3,9 @@ package main
 import (
 	"os"
 
-	"github.com/fmassicano/rosalind-branchs/LIA"
-	"github.com/fmassicano/rosalind-branchs/runner"
+	// "github.com/fmassicano/rosalind/extractseqprot"
+
+	"github.com/fmassicano/rosalind/runner"
 )
 
 func main() {
@@ -21,6 +22,7 @@ func main() {
 	// runner.RunString(mortalfibonaccirabbits.MortalFibonacci{}, os.Args[1])
 	// runner.RunString(overlapgraphs.OverlapGraph{}, os.Args[1])
 	// runner.RunString(calculatingexpectedoffspring.ExpOffSpring{}, os.Args[1])
-	runner.RunString(LIA.LIA{}, os.Args[1])
+	// runner.RunString(LIA.LIA{}, os.Args[1])
+	runner.RunStringOnlyProcess(extractseqprot.ExtractSeqProt{}, os.Args[1])
 
 }
