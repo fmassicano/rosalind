@@ -44,16 +44,16 @@ func extractSeqProt(handle io.Reader) error {
 			if firstMark {
 				firstMark = !firstMark
 			} else {
-				fmt.Println(scanner.Text())
+				// fmt.Println(scanner.Text())
 			}
 			continue
 		}
 
-		fmt.Print(scanner.Text())
+		// fmt.Print(scanner.Text())
 
 	}
 
-	fmt.Println(scanner.Text())
+	// fmt.Println(scanner.Text())
 
 	return nil
 }
